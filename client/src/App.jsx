@@ -9,7 +9,7 @@ import NavBar from './components/NavBar';
 function App() {
 
   return (
-    <div >
+    <div className='bg-[#f7fbff]'>
         <NavBar />
         <Routes>
             <Route path='/' element={<Home />} />
