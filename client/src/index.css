@@ -17,10 +17,13 @@
     appearance: none;
     width: 30px;
     min-height: 30px;
-    background-image: url(/slide_icon.svg);
+    background-image: url("../src/assets/slide_icon.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    
 
+}
+
+.bg-layer{
+    background-image: url("../src/assets/bg_layer.png");
 }
