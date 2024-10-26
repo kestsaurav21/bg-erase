@@ -3,7 +3,7 @@ import { assets, plans } from '../assets/assets'
 
 const BuyCredit = () => {
   return (
-    <div className='min-h-[75vh] text-center pt-14 mb-10'>
+    <div className='min-h-[77vh] text-center pt-14 mb-10'>
 
       <button className='border-2 border-gray-900 px-10 py-3 rounded-full mb-6'>Our Plans</button>
 
