@@ -13,7 +13,7 @@ const Header = () => {
             </h1>
 
             <p className='my-6 text-[1rem] text-gray-500 text-justify'>
-            Our AI background remover instantly removes the background of your photos in seconds. <br className='max-sm:hidden'/>
+            Our AI background remover instantly removes the background of your <br className='max-sm:hidden'/> photos in seconds. <br className='max-sm:hidden'/>
             Then you can add any new background or leave it transparent!
             </p>
 
@@ -29,7 +29,7 @@ const Header = () => {
         </div>
         {/* ------- right section -------- */}
         <div className='w-full max-w-md' >
-            <img src={assets.header_img} alt="" />
+            <img src={assets.header_img}  />
         </div>
 
     </div>
