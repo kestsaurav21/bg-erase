@@ -17,7 +17,8 @@ const Header = () => {
             Then you can add any new background or leave it transparent!
             </p>
 
-            <div className='' >
+            {/* Upload Button */}
+            <div >
                 <input type="file" name='file' id='fileupload' hidden />
                 <label className='inline-flex gap-3 px-8 py-3.5 rounded-full cursor-pointer bg-gradient-to-r from-violet-600 to-fuchsia-500 m-auto hover:scale-105 transition-all duration-700 '
                  htmlFor="fileupload">
