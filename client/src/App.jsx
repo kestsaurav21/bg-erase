@@ -7,11 +7,13 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
 
+
 function App() {
 
   return (
     <div className='bg-[#f7fbff]'>
         <NavBar />
+     
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/result' element={<Result />} />
