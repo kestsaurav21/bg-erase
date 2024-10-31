@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext';
 
 const Header = () => {
+
+    const { removeBg } = useContext(AppContext);
+
   return (
     <div className='flex items-center justify-center max-sm:flex-col-reverse gap-y-10 gap-x-2 px-4 mt-10 lg:px-44 sm:mt-20 '>
         {/* ------- left section -------- */}
@@ -19,7 +23,7 @@ const Header = () => {
 
             {/* Upload Button */}
             <div >
-                <input type="file" name='file' id='fileupload' hidden />
+                <input onChange={ e => removeBg(e.target.files[0])} type="file" name='file' accept='image/*' id='fileupload' hidden />
                 <label className='inline-flex gap-3 px-8 py-3.5 rounded-full cursor-pointer bg-gradient-to-r from-violet-600 to-fuchsia-500 m-auto hover:scale-105 transition-all duration-700 '
                  htmlFor="fileupload">
                     <img className='w-[20]' src={assets.upload_btn_icon} alt="upload-icon" />

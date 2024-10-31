@@ -8,7 +8,7 @@ const Footer = () => {
             <img src={assets.logo_icon} alt="" />
 
             <p className='text-white text-xl font-bold'>
-            All right reserved. Copyright @bg lift
+            All right reserved. Copyright @bg erase
             </p>
             <div className='flex'>
                 <img className='cursor-pointer w-16' src={assets.facebook_icon} alt="" />
