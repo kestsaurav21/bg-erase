@@ -27,7 +27,6 @@ const AppContextProvider = ( props ) => {
     const loadCreditsData = async () => {
 
         try {
-
             const token = await getToken()
 
             const { data } = await axios.get(backendUrl + '/api/user/credits', {headers:{token}})
@@ -35,16 +34,12 @@ const AppContextProvider = ( props ) => {
             if(data.success){
                 setCredit(data.credits)
                 console.log(data.credits);
-                
             }  
         } catch (error) {
             console.log(error);
             toast.error(error.message)
-            
         }
-
     }
-
 
     const removeBg = async ( image ) => {
 
