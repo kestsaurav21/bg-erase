@@ -1,10 +1,12 @@
 import { Webhook } from "svix"
 import userModel from "../models/userModel.js";
+import Razorpay from "razorpay";
 
 
 // API Controller Function to Manage Clerk User with database
 
 // http:localhost:4000/api/user/webhooks
+
 
 const clerkWebHooks = async (req, res) => {
     
@@ -94,6 +96,14 @@ const userCredits = async (req, res) => {
         
     }
 }
+
+// Gateway Initialize
+
+
+const razorpayInstance = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET
+})
 
 
 
