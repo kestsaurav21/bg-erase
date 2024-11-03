@@ -44,7 +44,7 @@ const removeBgImage = async (req,res) => {
 
             const resultImage = `data:${req.file.mimeType}; base64, ${base64Image}`;
 
-            await userModel.findByIdAndUpdate(user._id, {creditBalance: user.createReadStream-1})
+            await userModel.findByIdAndUpdate(user._id, {creditBalance: user.creditBalance-1})
 
             res.json({success:true, resultImage, creditBalance: user.creditBalance-1, message:'Background is removed'});
 
