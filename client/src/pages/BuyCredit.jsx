@@ -1,7 +1,57 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets, plans } from '../assets/assets'
+import axios from 'axios'
+import { AppContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@clerk/clerk-react';
 
 const BuyCredit = () => {
+
+    const { backendUrl, loadCreditsData } = useContext(AppContext);
+    
+    const navigate = useNavigate(); 
+
+    const { getToken } = useAuth();
+
+    const initPay = async (order) => {
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: order.amount,
+        currency: order.currency,
+        order: 'Credits Payment',
+        description: "Credits Payment",
+        order_id: order.id,
+        receipt: order.receipt,
+        handler: async (response) => {
+            // console.log(response);
+        }
+      }
+
+      const rzp = new window.Razorpay(options);
+      rzp.open()
+
+    }
+
+    const paymentRazorpay = async(planId) => {
+        try {
+
+          const token = await getToken();
+
+          const { data } = await axios.post(backendUrl + '/api/user/pay-razor', {planId}, 
+            {headers: {token}}
+          )
+          
+          if(data.success){
+            initPay(data.order)
+          }
+  
+        } catch (error) {
+          console.log(error);
+          toast.error(error.message) 
+        }
+    }
+
   return (
     <div className='min-h-[77vh] text-center pt-14 mb-10'>
 
@@ -21,7 +71,8 @@ const BuyCredit = () => {
               <span className='font-medium text-3xl '>${item.price}</span> / {item.credits} credits
             </p>
 
-            <button className='bg-black text-white mt-8 px-16 py-4 rounded-full hover:scale-105 transition-all duration-500'>Purchase</button>
+            <button onClick={() => paymentRazorpay(item.id)}
+             className='bg-black text-white mt-8 px-16 py-4 rounded-full hover:scale-105 transition-all duration-500'>Purchase</button>
 
           </div>
         ))}
