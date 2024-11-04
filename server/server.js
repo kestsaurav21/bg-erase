@@ -15,7 +15,10 @@ await connectDB();
 
 //Intialize Middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: "*",
+    optionsSuccessStatus: 200
+}))
 
 
 // API routes
