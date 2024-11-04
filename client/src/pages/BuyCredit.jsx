@@ -4,6 +4,7 @@ import axios from 'axios'
 import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@clerk/clerk-react';
+import { toast } from 'react-toastify';
 
 const BuyCredit = () => {
 
@@ -24,7 +25,30 @@ const BuyCredit = () => {
         order_id: order.id,
         receipt: order.receipt,
         handler: async (response) => {
-            // console.log(response);
+            console.log(response);
+
+            const token = await getToken()
+
+            try {
+
+              const { data } = await axios.post(backendUrl + '/api/user/verify-razor', response, 
+                {headers: {token}}
+              )
+              console.log(data.success);
+              
+              if(data.success){
+                loadCreditsData()
+                navigate('/')
+                toast.success('Credit Added')
+              }
+
+            } catch (error) {
+
+              console.log(error);
+              navigate('/')
+              toast.error(error.message)
+
+            }
         }
       }
 
@@ -33,7 +57,7 @@ const BuyCredit = () => {
 
     }
 
-    const paymentRazorpay = async(planId) => {
+    const paymentRazorpay = async (planId) => {
         try {
 
           const token = await getToken();
@@ -68,7 +92,7 @@ const BuyCredit = () => {
             <p className='text-sm text-gray-500'>{item.desc}</p>
 
             <p className='mt-6'>
-              <span className='font-medium text-3xl '>${item.price}</span> / {item.credits} credits
+              <span className='font-medium text-3xl '>₹{item.price}</span> / {item.credits} credits
             </p>
 
             <button onClick={() => paymentRazorpay(item.id)}

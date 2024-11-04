@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-
 const userSchema = new Schema({
     clerkId: { 
         type: String, 
@@ -27,7 +26,6 @@ const userSchema = new Schema({
         type: Number,
         default: 5
     }
-
 })
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);
