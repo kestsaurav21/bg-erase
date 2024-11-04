@@ -2,7 +2,6 @@ import axios from 'axios'
 import fs from 'fs'
 import FormData from 'form-data'
 import userModel from '../models/userModel.js'
-import { log } from 'console'
 
 
 // Controller function to remove background from Image
