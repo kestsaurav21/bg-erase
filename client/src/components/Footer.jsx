@@ -35,7 +35,7 @@ const Footer = () => {
         <img src={assets.logo_icon} alt="Company Logo" className="w-12 md:w-16" />
 
         <p className='text-white text-center md:text-left text-sm md:text-base lg:text-xl font-bold'>
-          All rights reserved. © 2023 BG-Erase
+          All rights reserved. © 2024 BG-Erase
         </p>
       </div>
 
