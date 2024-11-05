@@ -1,6 +1,6 @@
-# AI Background Removal SaaS App
+# BG-Erasee (AI Background Removal SaaS App)
 
-A Full Stack SaaS application that allows users to remove image backgrounds using AI technology. Built with **ReactJS** on the frontend and **Clerk** for secure authentication and user management.
+A Full-stack SaaS application that allows users to remove image backgrounds using AI technology. Built with **ReactJS** on the frontend and **Clerk** for secure authentication and user management.
 
 ## Table of Contents
 - [Live Demo](#live-demo)
